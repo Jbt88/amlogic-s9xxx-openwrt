@@ -19,11 +19,11 @@ sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # change ssid
-sed -i "s/OpenWrt/FynnWrt/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/OpenWrt/FynN/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh
 
 # change hostname
-sed -i "s/OpenWrt/FynnWrt/g" package/base-files/files/bin/config_generate
+sed -i "s/OpenWrt/FynN/g" package/base-files/files/bin/config_generate
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
 # sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
 
@@ -45,9 +45,6 @@ svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
-
-# Add p7zip
-svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
 
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
