@@ -69,9 +69,10 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
+      
+    - name: Install custom feeds
+      run: cd openwrt && ./scripts/feeds install php7
         echo "src-git kea_php7 https://github.com/kea/openwrt-php7-package.git" >> feeds.conf.default
-        scripts/feeds update -a
-        scripts/feeds install php7
         
     - name: Load custom configuration
       run: |
