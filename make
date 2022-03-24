@@ -69,8 +69,16 @@ version_branch="stable"
 auto_kernel="true"
 build_kernel=("5.15.25" "5.4.180")
 # Set supported SoC
-build_openwrt=("s905x")
-
+build_openwrt=(
+    "s922x" "s922x-n2" "s922x-reva" "a311d"
+    "s905x3"
+    "s905x2" "s905x2-km3" "s905l3a"
+    "s912" "s912-m8s"
+    "s905d" "s905d-ki"
+    "s905x"
+    "s905w"
+    "s905"
+)
 # Set OpenWrt firmware size (SKIP_MB >= 4, BOOT_MB >= 256, ROOT_MB >= 512)
 SKIP_MB="68"
 BOOT_MB="256"
