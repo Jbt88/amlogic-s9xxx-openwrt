@@ -34,6 +34,42 @@ cp $GITHUB_WORKSPACE/amlogic-s9xxx/common-files/patches/zsh/.zshrc .
 cp $GITHUB_WORKSPACE/amlogic-s9xxx/common-files/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
 popd
 
+# Add luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
+
+# Add p7zip
+svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
+
+# Add luci-app-3ginfo-lite
+svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
+
+# Intel XMM 7650 LTE-A Pro modem.
+# svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
+
+# A Qos luci app filter device by MAC address
+svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
+
+# luci-app-modeminfo
+svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
+
+# luci-app-smstools3 
+svn co https://github.com/koshev-msk/luci-app-smstools3/trunk package/luci-app-smstools3
+
+# luci-app-mqos
+svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
+
+# Add luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
+rm -rf package/openwrt-passwall/{kcptun,xray-core} 2>/dev/null
+
+# Add luci-app-openclash
+svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openwrt-openclash
+pushd package/openwrt-openclash/tools/po2lmo && make && sudo make install 2>/dev/null && popd
+
+# Add luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/depends/luci-lib-fs package/luci-lib-fs
+
 # Add autocore
 # svn co https://github.com/ophub/amlogic-s9xxx-openwrt/trunk/amlogic-s9xxx/common-files/patches/autocore package/lean/autocore
 
