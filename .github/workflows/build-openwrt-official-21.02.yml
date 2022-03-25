@@ -72,10 +72,10 @@ jobs:
       
     - name: Install custom feeds      
       run: cd openwrt && ./scripts/feeds install php7
-        $ echo 'src-git hnw_php7 https://github.com/hnw/openwrt-packages-php7.git' >> feeds.conf
-        $ ./scripts/feeds update -a
-        $ ./scripts/feeds install php7
-        $ make packages/php7/compile
+        echo 'src-git hnw_php7 https://github.com/hnw/openwrt-packages-php7.git' >> feeds.conf
+        ./scripts/feeds update -a
+        ./scripts/feeds install php7
+        make packages/php7/compile
         
     - name: Load custom configuration
       run: |
