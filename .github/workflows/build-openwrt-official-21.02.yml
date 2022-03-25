@@ -69,10 +69,6 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-      
-    - name: Install custom feeds
-      run: cd openwrt && ./scripts/feeds install php7
-        echo "src-git kea_php7 https://github.com/kea/openwrt-php7-package.git" >> feeds.conf.default
 
     - name: Load custom configuration
       run: |
@@ -134,4 +130,3 @@ jobs:
           Default WIFI name: OpenWrt
           Default WIFI password: none
           Install to EMMC: Login to OpenWrt → System → Amlogic Service → Install OpenWrt
-
