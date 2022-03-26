@@ -22,9 +22,9 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: https://github.com/Jbt88/immortalwrt/blob/main/config
-  DIY_P1_SH: https://github.com/Jbt88/immortalwrt/blob/main/scripts/feeds.sh
-  DIY_P2_SH: https://github.com/Jbt88/immortalwrt/blob/main/scripts/custom.sh
+  CONFIG_FILE: https://github.com/Jbt88/immortalwrt/trunk/main/config
+  DIY_P1_SH: https://github.com/Jbt88/immortalwrt/trunk/main/scripts/feeds.sh
+  DIY_P2_SH: https://github.com/Jbt88/immortalwrt/trunk/main/scripts/custom.sh
   TZ: Asia/Jakarta
 
 jobs:
