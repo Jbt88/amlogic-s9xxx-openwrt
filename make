@@ -614,11 +614,12 @@ EOF
 
     cd ${boot}
 
-    cp -f ${configfiles_path}/patches/bootfs/uEnv.txt
-    boot_conf_file="uEnv.txt"
-    [ -f "${boot_conf_file}" ] || error_msg "The [ ${boot_conf_file} ] file does not exist."
-    sed -i "s|LABEL=ROOTFS|UUID=${ROOTFS_UUID}|g" ${boot_conf_file}
-    sed -i "s|meson.*.dtb|${FDTFILE}|g" ${boot_conf_file}
+    if [ ! -f "uEnv.txt" ]; then
+        die "The uEnv.txt File does not exist"
+    else
+        old_fdt_dtb="meson-gxl-s905d-phicomm-n1.dtb"
+        sed -i "s/${old_fdt_dtb}/${FDTFILE}/g" uEnv.txt
+    fi
 
     # Add u-boot.ext for 5.10 kernel
     if [[ "${K510}" -eq "1" && -n "${UBOOT_OVERLOAD}" ]]; then
