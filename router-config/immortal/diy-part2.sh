@@ -40,6 +40,9 @@ cp $GITHUB_WORKSPACE/amlogic-s9xxx/common-files/patches/zsh/.zshrc .
 cp $GITHUB_WORKSPACE/amlogic-s9xxx/common-files/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
 popd
 
+# Luci Tinyfilemanager
+svn co https://github.com/Jbt88/tinyfilemanager/trunk package/luci-app-tinyfilemanager
+
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
 
