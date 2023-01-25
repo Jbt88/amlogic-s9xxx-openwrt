@@ -47,20 +47,20 @@ svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3gin
 # svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
 
 # A Qos luci app filter device by MAC address
-svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
+# svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
 
 # luci-app-modeminfo
-svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
+# svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
 
 # luci-app-smstools3 
-svn co https://github.com/koshev-msk/luci-app-smstools3/trunk package/luci-app-smstools3
+# svn co https://github.com/koshev-msk/luci-app-smstools3/trunk package/luci-app-smstools3
 
 # luci-app-mqos
-svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
+# svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
 
 # Add luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
-rm -rf package/openwrt-passwall/{kcptun,xray-core} 2>/dev/null
+# svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
+# rm -rf package/openwrt-passwall/{kcptun,xray-core} 2>/dev/null
 
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openwrt-openclash
