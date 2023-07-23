@@ -21,7 +21,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "all"
+        default: "s905x"
         type: choice
         options:
           - all
@@ -132,7 +132,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "5.15.1_6.1.1"
+        default: "6.1.1"
         type: choice
         options:
           - 5.4.1_5.10.1
@@ -185,11 +185,11 @@ env:
   CONFIG_FILE: config-openwrt/${{ inputs.source_branch }}/config
   DIY_P1_SH: config-openwrt/${{ inputs.source_branch }}/diy-part1.sh
   DIY_P2_SH: config-openwrt/${{ inputs.source_branch }}/diy-part2.sh
-  TZ: America/New_York
+  TZ: Jakarta/Indonesia
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-last
     if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
 
     steps:
