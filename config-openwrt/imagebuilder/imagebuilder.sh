@@ -157,6 +157,26 @@ custom_config() {
     fi
 }
 
+# Add Theme Alpha
+custom_config() {
+    cd ${imagebuilder_path}
+    echo -e "${STEPS} Start adding custom config..."
+
+    config_list=""
+    if [[ -s "${custom_config_file}" ]]; then
+        config_list="$(cat ${custom_config_file} 2>/dev/null | grep -E "^CONFIG_PACKAGE_.*=y" | sed -e 's/CONFIG_PACKAGE_//g' -e 's/=y//g' -e 's/[ ][ ]*//g' | tr '\n' ' ')"
+        echo -e "${INFO} Custom config list: \n$(echo "${config_list}" | tr ' ' '\n')"
+    else
+        echo -e "${INFO} No custom config was added."
+    fi
+
+    # Add luci-theme-alpha to the custom config list
+    config_list+="luci-theme-alpha"
+
+    # Save the modified custom config list back to the file
+    echo "${config_list}" > ${custom_config_file}
+}
+
 # Add custom files
 # The FILES variable allows custom configuration files to be included in images built with Image Builder.
 # The [ files ] directory should be placed in the Image Builder root directory where you issue the make command.
