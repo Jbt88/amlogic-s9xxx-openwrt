@@ -185,7 +185,7 @@ env:
   CONFIG_FILE: config-openwrt/${{ inputs.source_branch }}/config
   DIY_P1_SH: config-openwrt/${{ inputs.source_branch }}/diy-part1.sh
   DIY_P2_SH: config-openwrt/${{ inputs.source_branch }}/diy-part2.sh
-  TZ: Jakarta/Indonesia
+  TZ: Asia/Jakarta
 
 jobs:
   build:
