@@ -156,6 +156,25 @@ custom_config() {
         echo -e "${INFO} No custom config was added."
     fi
 }
+# Add luci-app-openclash
+custom_config() {
+    cd ${imagebuilder_path}
+    echo -e "${STEPS} Start adding custom config..."
+
+    config_list=""
+    if [[ -s "${custom_config_file}" ]]; then
+        config_list="$(cat ${custom_config_file} 2>/dev/null | grep -E "^CONFIG_PACKAGE_.*=y" | sed -e 's/CONFIG_PACKAGE_//g' -e 's/=y//g' -e 's/[ ][ ]*//g' | tr '\n' ' ')"
+        echo -e "${INFO} Custom config list: \n$(echo "${config_list}" | tr ' ' '\n')"
+    else
+        echo -e "${INFO} No custom config was added."
+    fi
+
+    # Add the OpenClash package to the custom config list
+    config_list+="luci-app-openclash"
+
+    # Save the modified custom config list back to the file
+    echo "${config_list}" > ${custom_config_file}
+}
 
 # Add Theme Alpha
 custom_config() {
@@ -216,15 +235,15 @@ rebuild_firmware() {
         proto-bonding pv rename resize2fs runc subversion-client subversion-libs tar \
         tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
         uuidgen wget-ssl whereis which wpad-basic wwan xfs-fsck xfs-mkfs xz \
-        xz-utils ziptool zoneinfo-asia zoneinfo-core zstd \
+        xz-utils ziptool zoneinfo-asia zoneinfo-core zstd usbutils openssh-sftp-server \
         \
-        luci luci-base luci-compat luci-i18n-base-en luci-i18n-base-zh-cn luci-lib-base  \
+        luci luci-base luci-compat luci-i18n-base-en luci-lib-base  \
         luci-lib-docker luci-lib-ip luci-lib-ipkg luci-lib-jsonc luci-lib-nixio  \
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
         luci-proto-3g luci-proto-bonding luci-proto-ipip luci-proto-ipv6 luci-proto-ncm  \
         luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay  \
         \
-        luci-app-amlogic luci-i18n-amlogic-zh-cn \
+        luci-app-amlogic luci-theme-alpha luci-app-openclash \
         \
         ${config_list} \
         "
